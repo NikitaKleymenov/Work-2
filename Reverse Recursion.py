@@ -1,14 +1,16 @@
 i = [15, 7, 22, 4, 16]
 
 def sum_rev(arr, idx, total):
-    print(f'шаг суммы {idx}: total = {total}')
     if idx == len(arr):
+        print(f'шаг суммы {idx+1}: total = {total}')
         return total
-    return sum_rev(arr, idx + 1, total + arr[idx])
+    total = total + arr[idx]
+    print(f'шаг суммы {idx+1}: total = {total}')
+    return sum_rev(arr, idx + 1, total)
 
 
 def max_rev(arr, idx, cur_max):
-    print(f'шаг максимума {idx}: cur_max = {cur_max}')
+    print(f'шаг максимума {idx+1}: cur_max = {cur_max}')
     if idx == len(arr):
         return cur_max
     if arr[idx] > cur_max:
@@ -16,7 +18,7 @@ def max_rev(arr, idx, cur_max):
     return max_rev(arr, idx + 1, cur_max)
 
 def min_rev(arr, idx, cur_min):
-    print(f'шаг минимума {idx}: cur_min = {cur_min}')
+    print(f'шаг минимума {idx+1}: cur_min = {cur_min}')
     if idx == len(arr):
         return cur_min
     if arr[idx] < cur_min:
